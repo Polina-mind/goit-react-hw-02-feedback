@@ -5,53 +5,60 @@ import './App.css';
 import { render } from '@testing-library/react';
 
 class App extends Component {
-  state = {
-    statistic: { good: 1, neutral: 3, bad: 1 },
+  state = { good: 0, neutral: 0, bad: 0 };
+
+  onLeaveFeedback = event => {
+    const key = event.currentTarget.textContent;
+
+    if (key === 'good') {
+      this.setState(prevState => {
+        return {
+          good: prevState.good + 1,
+        };
+      });
+    } else if (key === 'neutral') {
+      this.setState(prevState => {
+        return {
+          neutral: prevState.neutral + 1,
+        };
+      });
+    } else if (key === 'bad') {
+      this.setState(prevState => {
+        return {
+          bad: prevState.bad + 1,
+        };
+      });
+    }
   };
 
-  // onLeaveFeedback = id => {
-  //   this.setState(prevState => {
-  //     statistic: prevState.statistic.map(stat => {
-  //       id === indexOf(stat) ? statistic[idx] + 1 : statistic[idx];
-  //     });
-  //   });
-  // };
-
   render() {
-    const { statistic } = this.state;
+    // const { statistic } = this.state;
+    const { good, neutral, bad } = this.state;
 
-    const totalStatisticCount =
-      Number(statistic.good) +
-      Number(statistic.neutral) +
-      Number(statistic.bad);
+    const totalStatisticCount = Number(good) + Number(neutral) + Number(bad);
 
-    const positivePercentage =
-      (Number(statistic.good) / totalStatisticCount) * 100;
+    const positivePercentage = Math.round(
+      (Number(good) / totalStatisticCount) * 100,
+    );
 
     return (
       <>
         <h1 className="Title">Please leave feedback</h1>
 
         <FeedbackOptions
-          options={statistic}
-          // onLeaveFeedback={onLeaveFeedback}
+          options={this.state}
+          onLeaveFeedback={this.onLeaveFeedback}
         ></FeedbackOptions>
 
         <Statistics
-          good={statistic.good}
-          neutral={statistic.neutral}
-          bad={statistic.bad}
+          good={good}
+          neutral={neutral}
+          bad={bad}
           total={totalStatisticCount}
           positivePercentage={positivePercentage}
         ></Statistics>
 
         {/* <Section title=""></Section> */}
-
-        {/* <div>
-          <p>Total: {totalStatisticCount}</p>
-          <p>Кол-во выполненных: {completedTodoCount}</p>
-        </div> */}
-        {/* <TodoList todos={todos} onDeleteTodo={this.deleteTodo} /> */}
       </>
     );
   }
