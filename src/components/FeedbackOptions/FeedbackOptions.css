@@ -1,0 +1,16 @@
+.Buttons {
+  text-align: center;
+}
+
+.Button {
+  margin-right: 10px;
+  padding: 0 10px 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(203, 230, 253);
+  cursor: pointer;
+}
+
+.Button:hover,
+.Button:focus {
+  background-color: rgb(241, 209, 229);
+}
