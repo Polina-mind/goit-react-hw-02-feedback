@@ -4,7 +4,7 @@ import './Statistics.css';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    total && (
+    total > 0 && (
       <div className="Statistics-block">
         <h1>Statistics</h1>
 

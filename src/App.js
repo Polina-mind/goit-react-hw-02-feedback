@@ -43,7 +43,6 @@ class App extends Component {
       (Number(good) / totalStatisticCount) * 100,
     );
 
-    console.log(totalStatisticCount);
     return (
       <>
         <Section

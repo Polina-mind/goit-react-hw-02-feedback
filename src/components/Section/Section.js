@@ -31,7 +31,7 @@ const Section = ({
       <Notification message={message}></Notification>
 
       <Statistics
-        totalStatisticCount
+        // totalStatisticCount
         good={good}
         neutral={neutral}
         bad={bad}
