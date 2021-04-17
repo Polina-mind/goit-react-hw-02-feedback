@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Statistics from './components/Statistics';
-import FeedbackOptions from './components/FeedbackOptions';
+import Section from './components/Section';
+// import Statistics from './components/Statistics';
+// import FeedbackOptions from './components/FeedbackOptions';
+// import Notification from './components/Notification';
 import './App.css';
 import { render } from '@testing-library/react';
 
@@ -41,24 +43,40 @@ class App extends Component {
       (Number(good) / totalStatisticCount) * 100,
     );
 
+    console.log(totalStatisticCount);
     return (
       <>
-        <h1 className="Title">Please leave feedback</h1>
-
-        <FeedbackOptions
+        <Section
+          title="Please leave feedback"
           options={this.state}
           onLeaveFeedback={this.onLeaveFeedback}
-        ></FeedbackOptions>
-
-        <Statistics
+          message={!totalStatisticCount && 'No feedback given'}
           good={good}
           neutral={neutral}
           bad={bad}
           total={totalStatisticCount}
           positivePercentage={positivePercentage}
-        ></Statistics>
+        ></Section>
 
-        {/* <Section title=""></Section> */}
+        {/* <h1 className="Title">Please leave feedback</h1> */}
+
+        {/* <FeedbackOptions
+          options={this.state}
+          onLeaveFeedback={this.onLeaveFeedback}
+        ></FeedbackOptions>
+
+        <Notification
+          message={!totalStatisticCount && 'No feedback given'}
+        ></Notification>
+
+        <Statistics
+          totalStatisticCount
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={totalStatisticCount}
+          positivePercentage={positivePercentage}
+        ></Statistics> */}
       </>
     );
   }
