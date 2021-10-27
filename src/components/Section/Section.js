@@ -1,48 +1,18 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import PropTypes from 'prop-types';
-import Statistics from '../Statistics';
-import FeedbackOptions from '../FeedbackOptions';
-import Notification from '../Notification';
 import './Section.css';
 
-const Section = ({
-  title,
-  options,
-  onLeaveFeedback,
-  message,
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-  //   children,
-}) => {
+const Section = ({ title, children }) => {
   return (
-    <section className="Section">
+    <>
       <h1 className="Title">{title}</h1>
-
-      {/* {children} */}
-
-      <FeedbackOptions
-        options={options}
-        onLeaveFeedback={onLeaveFeedback}
-      ></FeedbackOptions>
-
-      <Notification message={message}></Notification>
-
-      <Statistics
-        // totalStatisticCount
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        total={total}
-        positivePercentage={positivePercentage}
-      ></Statistics>
-    </section>
+      {children}
+    </>
   );
 };
 
-Section.protoTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
 };
 

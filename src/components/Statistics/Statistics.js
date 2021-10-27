@@ -6,14 +6,12 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     total > 0 && (
       <div className="Statistics-block">
-        <h1>Statistics</h1>
-
         <span className="Statistic">Good: {good}</span>
         <span className="Statistic">Neutral: {neutral}</span>
         <span className="Statistic">Bad: {bad}</span>
 
         <div>
-          <span className="Statistic">Total: {total}</span>
+          <span className="Statistic-total">Total: {total}</span>
           <span className="Statistic">
             Positive Feedback: {positivePercentage}%
           </span>
@@ -23,10 +21,12 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   );
 };
 
-Statistics.protoTypes = {
+Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
 
 export default Statistics;

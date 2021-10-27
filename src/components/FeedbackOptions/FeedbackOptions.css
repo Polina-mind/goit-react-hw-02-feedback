@@ -10,7 +10,6 @@
   cursor: pointer;
 }
 
-.Button:hover,
-.Button:focus {
+.Button:hover {
   background-color: rgb(241, 209, 229);
 }

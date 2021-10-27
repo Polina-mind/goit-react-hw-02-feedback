@@ -10,7 +10,7 @@ const Notification = ({ message }) => {
   );
 };
 
-Notification.protoTypes = {
+Notification.propTypes = {
   message: PropTypes.string.isRequired,
 };
 
